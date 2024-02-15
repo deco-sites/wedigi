@@ -54,3 +54,10 @@
     --dot-progress: 100%
   }
 }
+
+/* ------ SEARCH ------ */
+
+#search-input {
+  border: 0;
+  background-color: transparent;
+}

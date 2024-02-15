@@ -46,23 +46,33 @@ function Header({
   navItems = [
     {
       "@type": "SiteNavigationElement",
-      name: "Feminino",
-      url: "/",
+      name: "we.digi",
+      url: "/sobre-a-wedigi",
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Masculino",
-      url: "/",
+      name: "tech",
+      url: "/wedigi-tech",
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Sale",
-      url: "/",
+      name: "growth",
+      url: "/wedigi-growth",
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Linktree",
-      url: "/",
+      name: "house",
+      url: "/wedigi-house",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "insights",
+      url: "/insights",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "vamos falar?",
+      url: "/vamos-falar",
     },
   ],
   logo = {
@@ -86,7 +96,9 @@ function Header({
           searchbar={searchbar}
           platform={platform}
         >
-          <div class="bg-base-100 fixed w-full z-50">
+          <div class="bg-white/70 fixed w-full z-50"
+            style={{ backdropFilter: "blur(2px)" }}
+          >
             {alerts && alerts.length > 0 && <Alert alerts={alerts} />}
             <Navbar
               items={items}

@@ -1,4 +1,3 @@
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { MenuButton, SearchButton } from "$store/islands/Header/Buttons.tsx";
 import CartButtonLinx from "$store/islands/Header/Cart/linx.tsx";
@@ -7,13 +6,14 @@ import CartButtonVDNA from "$store/islands/Header/Cart/vnda.tsx";
 import CartButtonVTEX from "$store/islands/Header/Cart/vtex.tsx";
 import CartButtonWake from "$store/islands/Header/Cart/wake.tsx";
 import CartButtonNuvemshop from "$store/islands/Header/Cart/nuvemshop.tsx";
-import Searchbar from "$store/islands/Header/Searchbar.tsx";
+import Searchbar, { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import { usePlatform } from "$store/sdk/usePlatform.tsx";
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { Buttons, Logo } from "$store/components/header/Header.tsx";
+import ThemeToggle from '$store/islands/Header/ThemeToggle.tsx';
 
 function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
   items: SiteNavigationElement[];
@@ -29,7 +29,7 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="lg:hidden grid grid-cols-3 justify-between items-center border-b border-base-200 w-full px-6 pb-6 gap-2"
+        class="bg-white lg:hidden grid grid-cols-3 justify-between items-center border-b border-base-200 w-full px-6 pb-6 gap-2"
       >
         <MenuButton />
         {logo && (
@@ -50,17 +50,12 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
 
         <div class="flex justify-end gap-1">
           <SearchButton />
-          {platform === "vtex" && <CartButtonVTEX />}
-          {platform === "vnda" && <CartButtonVDNA />}
-          {platform === "wake" && <CartButtonWake />}
-          {platform === "linx" && <CartButtonLinx />}
-          {platform === "shopify" && <CartButtonShopify />}
-          {platform === "nuvemshop" && <CartButtonNuvemshop />}
+          <ThemeToggle />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden lg:grid lg:grid-cols-3 items-center border-b border-base-200 w-full px-6">
+      <div class="hidden lg:grid lg:grid-cols-3 items-center w-full px-6">
         <ul
           class={`flex gap-6 col-span-1 ${
             logoPosition === "left" ? "justify-center" : "justify-start"
@@ -93,11 +88,10 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
         <div class="flex-none flex items-center justify-end gap-6 col-span-1">
           {!buttons?.hideSearchButton && (
             <div class="flex items-center text-xs font-thin gap-1">
-              <SearchButton />SEARCH
+              <Searchbar searchbar={searchbar} />
             </div>
           )}
 
-          <Searchbar searchbar={searchbar} />
           {!buttons?.hideAccountButton && (
             <a
               class="flex items-center text-xs font-thin"
@@ -135,6 +129,7 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
               {platform === "nuvemshop" && <CartButtonNuvemshop />}
             </div>
           )}
+          <ThemeToggle />
         </div>
       </div>
     </>
