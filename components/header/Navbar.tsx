@@ -13,7 +13,6 @@ import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { Buttons, Logo } from "$store/components/header/Header.tsx";
-import ThemeToggle from '$store/islands/Header/ThemeToggle.tsx';
 
 function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
   items: SiteNavigationElement[];
@@ -23,6 +22,10 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
   logoPosition?: "left" | "center";
 }) {
   const platform = usePlatform();
+
+  function toggleTheme() {
+    document.body.classList.contains('dark') ? document.body.classList.add('dark') : document.body.classList.remove('dark')
+  }
 
   return (
     <>
@@ -50,7 +53,6 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
 
         <div class="flex justify-end gap-1">
           <SearchButton />
-          <ThemeToggle />
         </div>
       </div>
 
@@ -129,7 +131,10 @@ function Navbar({ items, searchbar, logo, buttons, logoPosition = "left" }: {
               {platform === "nuvemshop" && <CartButtonNuvemshop />}
             </div>
           )}
-          <ThemeToggle />
+          <button onClick={toggleTheme}>
+                <Icon id="Moon" width={24} height={24} /> 
+                {/* <Icon id="Sun" width={24} height={24} /> */}
+          </button>
         </div>
       </div>
     </>

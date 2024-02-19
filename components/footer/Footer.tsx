@@ -223,11 +223,11 @@ function Footer({
           <div class="flex flex-col gap-10">
             <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
               {_logo}
-              {_sectionLinks}
               {_newsletter}
             </div>
             <Divider />
-            <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
+            <div class="flex justify-between items-start-top flex-col md:flex-row gap-10 md:gap-14">
+              {_sectionLinks}
               {_payments}
               {_social}
               <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">

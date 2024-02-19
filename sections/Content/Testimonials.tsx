@@ -88,11 +88,11 @@ const Testimonal = ({ image, text, user }: Testimonial) => (
       <Image
         src={image.src}
         alt={image?.alt}
-        width={100}
-        height={100}
+        width={156}
+        height={80}
       />
     )}
-    <h3 class="text-xl lg:text-2xl">
+    <h3 class="text-xl lg:text-xl">
       {text}
     </h3>
     <div class="flex flex-col items-center gap-4">
@@ -115,7 +115,7 @@ const Testimonal = ({ image, text, user }: Testimonial) => (
         {(user?.position || user?.company) &&
           (
             <p class="text-lg">
-              {user?.position}, {user?.company}
+              {user?.position && `${user?.position},`} {user?.company}
             </p>
           )}
       </div>
@@ -157,7 +157,7 @@ export default function Testimonials(
             {testimonials?.map(({ image, text, user }, index) => (
               <Slider.Item
                 index={index}
-                class="flex flex-col gap-4 carousel-item w-full"
+                class="flex flex-col gap-4 carousel-item w-8/12 m-auto"
               >
                 <Testimonal image={image} text={text} user={user} />
               </Slider.Item>

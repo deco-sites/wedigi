@@ -17,6 +17,12 @@ export interface ThemeColors {
   "primary"?: string;
   /** @format color */
   "secondary"?: string;
+  /** @format color */
+  "tech"?: string;
+  /** @format color */
+  "growth"?: string;
+  /** @format color */
+  "house"?: string;
   /**
    * @title Accent
    * @format color */
@@ -44,6 +50,12 @@ export interface ComplementaryColors {
   "primary-content"?: string;
   /** @format color */
   "secondary-content"?: string;
+  /** @format color */
+  "tech-content"?: string;
+  /** @format color */
+  "growth-content"?: string;
+  /** @format color */
+  "house-content"?: string;
   /**
    * @title Accent Content
    * @format color */
@@ -160,6 +172,16 @@ const toVariables = (
   };
 
   const colorVariables = Object.entries({
+
+    "--t": t["tech"],
+    "--tc": t["tech-content"] ?? contrasted(t["tech"]),
+
+    "--g": t["growth"],
+    "--gc": t["growth-content"] ?? contrasted(t["growth"]),
+
+    "--h": t["house"],
+    "--hc": t["house-content"] ?? contrasted(t["house"]),
+
     "--p": t["primary"],
     "--pc": t["primary-content"] ?? contrasted(t["primary"]),
 
@@ -206,7 +228,10 @@ const toVariables = (
 };
 
 const defaultTheme = {
-  "primary": "oklch(1 0 0)",
+  "tech": '#9F9FFF',
+  "growth": '#FF877B',
+  "house": '#6BC970',
+  "primary": "#1A202C",
   "secondary": "oklch(1 0 0)",
   "tertiary": "oklch(1 0 0)",
   "neutral": "oklch(1 0 0)",
@@ -234,6 +259,7 @@ const defaultTheme = {
  * :root {
  *   --color-primary: #FFFFFF;
  *   --color-secondary: "#161616"
+ *   --color-tech: "#161616"
  * }
  */
 function Section({

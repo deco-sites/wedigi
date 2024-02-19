@@ -50,9 +50,9 @@ function Newsletter(
           : "flex-col gap-4"
       }`}
     >
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 text-sm">
         {content?.title && (
-          <h4 class={tiled ? "text-2xl lg:text-3xl" : "text-lg"}>
+          <h4 class="text-lg py-0">
             {content?.title}
           </h4>
         )}
@@ -71,7 +71,7 @@ function Newsletter(
             />
             <button
               type="submit"
-              class="btn disabled:loading"
+              class="btn bg-accent disabled:loading"
               disabled={loading}
             >
               {content?.form?.buttonText || "Inscrever"}

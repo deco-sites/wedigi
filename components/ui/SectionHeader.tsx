@@ -29,7 +29,7 @@ function Header(props: Props) {
                   ${
                     props.colorReverse
                       ? "text-primary-content"
-                      : "text-base-content"
+                      : "text-primary"
                   }
                   ${fontSizeClasses[props.fontSize || "Normal"]}
                 `}
@@ -45,7 +45,7 @@ function Header(props: Props) {
                   ${
                     props.colorReverse ? "text-primary-content" : "text-neutral"
                   }
-                  ${fontSizeClasses[props.fontSize || "Normal"]}
+                  text-sm
                 `}
                 >
                   {props.description}

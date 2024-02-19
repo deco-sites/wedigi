@@ -1,5 +1,4 @@
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
-import Cart from "$store/components/minicart/Cart.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Drawer from "$store/components/ui/Drawer.tsx";
@@ -77,21 +76,6 @@ function Drawers({ menu, searchbar, children, platform }: Props) {
                 <Searchbar {...searchbar} />
               </div>
             )}
-          </Aside>
-        }
-      >
-        {children}
-      </Drawer>
-      <Drawer // right drawer
-        class="drawer-end"
-        open={displayCart.value !== false}
-        onClose={() => displayCart.value = false}
-        aside={
-          <Aside
-            title="Minha sacola"
-            onClose={() => displayCart.value = false}
-          >
-            <Cart platform={platform} />
           </Aside>
         }
       >
